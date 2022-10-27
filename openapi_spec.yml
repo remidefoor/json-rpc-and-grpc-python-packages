@@ -14,7 +14,7 @@ paths:
     post:
       operationId: calculate_fee
       summary: calculate fee
-      description: Calculate the gas fee for transporting a package.
+      description: Remote procedure to calculate the gas fee for transporting a package.
       tags:
         - Fee Calculator
       requestBody:
