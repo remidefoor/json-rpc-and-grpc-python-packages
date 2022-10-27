@@ -1,0 +1,111 @@
+openapi: 3.0.3
+info:
+  title: Fee Calculator API by dPost
+  description: A microservice to calculate the gas fee for transporting your package.
+  version: 1.0.0
+servers:
+  - url: http://127.0.0.1:5000
+    description: local API
+tags:
+  - name: Fee Calculator
+
+paths:
+  /:
+    post:
+      operationId: calculate_fee
+      summary: calculate fee
+      description: Calculate the gas fee for transporting a package.
+      tags:
+        - Fee Calculator
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                jsonrpc:
+                  type: string
+                  example: 2.0
+                method:
+                  $ref: "#/components/schemas/method"
+                params:
+                  type: object
+                  properties:
+                    package_size:
+                      $ref: "#/components/schemas/packageSize"
+                  required:
+                    - package_size
+                id:
+                  type: string
+                  example: 1
+              required:
+                - jsonrpc
+                - method
+                - params
+                - id
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: integer
+                    example: 5
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: integer
+                        example: -32602
+                      message:
+                        type: string
+                        example: Invalid params
+                      data:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            example: TypeError
+                          args:
+                            type: array
+                            items:
+                              type: string
+                              example: "calculate_fee() missing 1 required positional argument: 'package_size'"
+                          message:
+                            type: string
+                            example: "calculate_fee() missing 1 required positional argument: 'package_size'"
+                        required:
+                          - type
+                          - args
+                          - message
+                    required:
+                      - code
+                      - message
+                      - data
+                  id:
+                    type: string
+                    example: 1
+                  jsonrpc:
+                    type: string
+                    example: 2.0
+                required:
+                  - id
+                  - jsonrpc
+
+components:
+  schemas:
+    method:
+      type: string
+      enum:
+        - calculate_fee
+    packageSize:
+      type: string
+      enum:
+        - letter
+        - small
+        - medium
+        - large
