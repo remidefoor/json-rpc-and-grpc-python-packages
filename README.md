@@ -50,5 +50,5 @@ pip install -r requirements.txt
 To run the project and start using it, issue the following command:  
 
 ```
-flask run  
+flask --app Flask-JSONRPC run  
 ```
