@@ -55,37 +55,6 @@ paths:
                   result:
                     type: integer
                     example: 5
-                  error:
-                    type: object
-                    properties:
-                      code:
-                        type: integer
-                        example: -32602
-                      message:
-                        type: string
-                        example: Invalid params
-                      data:
-                        type: object
-                        properties:
-                          type:
-                            type: string
-                            example: TypeError
-                          args:
-                            type: array
-                            items:
-                              type: string
-                              example: "calculate_fee() missing 1 required positional argument: 'package_size'"
-                          message:
-                            type: string
-                            example: "calculate_fee() missing 1 required positional argument: 'package_size'"
-                        required:
-                          - type
-                          - args
-                          - message
-                    required:
-                      - code
-                      - message
-                      - data
                   id:
                     type: string
                     example: 1
