@@ -1,36 +1,25 @@
-from enum import IntEnum
+from fee_calculator import calculate_fee
 
 from flask import Flask
+from jsonrpc import exceptions
 from jsonrpc.backend.flask import api
-from jsonrpc.exceptions import JSONRPCInvalidParams
 
 app = Flask(__name__)
 app.add_url_rule("/", "api", api.as_view(), methods=["POST"])
 
-GAS_FEE: int = 5
 
-
-class PackageSize(IntEnum):
-    """An enum representing all possible package sizes."""
-
-    LETTER: int = 1
-    SMALL: int = 2
-    MEDIUM: int = 3
-    LARGE: int = 4
-
-
-@api.dispatcher.add_method
-def calculate_fee(package_size: str) -> int:
-    """Calculate the gas fee to transport a package.
+@api.dispatcher.add_method(name="calculate_fee")
+def handle_calculate_fee(package_size: str, src: float, dest: float) -> int:
+    """Handle the remote procedure call to calculate the fee for transporting a package.
 
     :param int package_size: the size of the package
-    :return: the gas fee to transport the package
-    :rtype: str
+    :param float src: the address of the sender
+    :param float dest: the address of the receiver
+    :return: the fee to transport the package
+    :rtype: int
     :raises JSONRPCInvalidParams: if the package size does not exist.
     """
     try:
-        formatted_package_size: str = package_size.upper()
-        package_size_weight: int = PackageSize[formatted_package_size].value
-        return GAS_FEE * package_size_weight
+        return calculate_fee(package_size, src, dest)
     except KeyError:
-        raise JSONRPCInvalidParams("The package size does not exist.")
+        raise exceptions.JSONRPCInvalidParams("The package size does not exist.")
