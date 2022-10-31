@@ -34,8 +34,16 @@ paths:
                   properties:
                     package_size:
                       $ref: "#/components/schemas/packageSize"
+                    src:
+                      type: number
+                      example: 0.0
+                    dest:
+                      type: number
+                      example: 1
                   required:
                     - package_size
+                    - src
+                    - dest
                 id:
                   type: string
                   example: 1
