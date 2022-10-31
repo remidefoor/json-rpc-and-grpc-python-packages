@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+enum PackageSize {
+  LETTER = 0;
+  SMALL = 1;
+  MEDIUM = 2;
+  LARGE = 3;
+}
+
+message FeeRequest {
+  string package_size = 1;
+  float src = 2;
+  float dest = 3;
+}
+
+message FeeResponse {
+  uint32 fee = 1;
+}
+
+service FeeCalculator {
+  rpc CalculateFee (FeeRequest) returns (FeeResponse);
+}

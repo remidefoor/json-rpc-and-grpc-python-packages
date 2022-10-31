@@ -1,4 +1,4 @@
-from fee_calculator import calculate_fee
+from fee_service import calculate_fee
 
 from flask import Flask
 from jsonrpc import exceptions
@@ -9,7 +9,7 @@ app.add_url_rule("/", "api", api.as_view(), methods=["POST"])
 
 
 @api.dispatcher.add_method(name="calculate_fee")
-def handle_calculate_fee(package_size: str, src: float, dest: float) -> int:
+def fee_request_handler(package_size: str, src: float, dest: float) -> int:
     """Handle the remote procedure call to calculate the fee for transporting a package.
 
     :param int package_size: the size of the package
