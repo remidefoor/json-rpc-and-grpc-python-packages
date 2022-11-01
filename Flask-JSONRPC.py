@@ -1,4 +1,4 @@
-from fee_service import calculate_fee
+from services.fee_service import calculate_fee
 
 from flask import Flask
 from flask_jsonrpc import JSONRPC, exceptions
