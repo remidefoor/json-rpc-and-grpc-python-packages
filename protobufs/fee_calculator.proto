@@ -1,12 +1,5 @@
 syntax = "proto3";
 
-enum PackageSize {
-  LETTER = 0;
-  SMALL = 1;
-  MEDIUM = 2;
-  LARGE = 3;
-}
-
 message FeeRequest {
   string package_size = 1;
   float src = 2;
