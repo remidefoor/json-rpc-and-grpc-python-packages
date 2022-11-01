@@ -5,7 +5,7 @@ import grpc
 
 # set path
 sys.path.append("..")
-from fee_service import calculate_fee
+from services.fee_service import calculate_fee
 from fee_calculator_pb2 import FeeResponse
 import fee_calculator_pb2_grpc
 
