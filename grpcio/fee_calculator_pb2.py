@@ -13,19 +13,19 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14\x66\x65\x65_calculator.proto\"=\n\nFeeRequest\x12\x14\n\x0cpackage_size\x18\x01 \x01(\t\x12\x0b\n\x03src\x18\x02 \x01(\x02\x12\x0c\n\x04\x64\x65st\x18\x03 \x01(\x02\"\x1a\n\x0b\x46\x65\x65Response\x12\x0b\n\x03\x66\x65\x65\x18\x01 \x01(\r*;\n\x0bPackageSize\x12\n\n\x06LETTER\x10\x00\x12\t\n\x05SMALL\x10\x01\x12\n\n\x06MEDIUM\x10\x02\x12\t\n\x05LARGE\x10\x03\x32:\n\rFeeCalculator\x12)\n\x0c\x43\x61lculateFee\x12\x0b.FeeRequest\x1a\x0c.FeeResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14\x66\x65\x65_calculator.proto\"I\n\nFeeRequest\x12\n\n\x02id\x18\x01 \x01(\r\x12\x14\n\x0cpackage_size\x18\x02 \x01(\t\x12\x0b\n\x03src\x18\x03 \x01(\x02\x12\x0c\n\x04\x64\x65st\x18\x04 \x01(\x02\"&\n\x0b\x46\x65\x65Response\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0b\n\x03\x66\x65\x65\x18\x02 \x01(\r*;\n\x0bPackageSize\x12\n\n\x06LETTER\x10\x00\x12\t\n\x05SMALL\x10\x01\x12\n\n\x06MEDIUM\x10\x02\x12\t\n\x05LARGE\x10\x03\x32:\n\rFeeCalculator\x12)\n\x0c\x43\x61lculateFee\x12\x0b.FeeRequest\x1a\x0c.FeeResponseb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'fee_calculator_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _PACKAGESIZE._serialized_start=115
-  _PACKAGESIZE._serialized_end=174
+  _PACKAGESIZE._serialized_start=139
+  _PACKAGESIZE._serialized_end=198
   _FEEREQUEST._serialized_start=24
-  _FEEREQUEST._serialized_end=85
-  _FEERESPONSE._serialized_start=87
-  _FEERESPONSE._serialized_end=113
-  _FEECALCULATOR._serialized_start=176
-  _FEECALCULATOR._serialized_end=234
+  _FEEREQUEST._serialized_end=97
+  _FEERESPONSE._serialized_start=99
+  _FEERESPONSE._serialized_end=137
+  _FEECALCULATOR._serialized_start=200
+  _FEECALCULATOR._serialized_end=258
 # @@protoc_insertion_point(module_scope)
