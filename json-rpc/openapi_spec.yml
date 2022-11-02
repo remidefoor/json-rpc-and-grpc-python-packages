@@ -63,6 +63,37 @@ paths:
                   result:
                     type: integer
                     example: 5
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: integer
+                        example: -32000
+                      message:
+                        type: string
+                        example: Server error
+                      data:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            example: JSONRPCInvalidParams
+                          args:
+                            type: array
+                            items:
+                              type: string
+                              example: JSONRPCInvalidParams
+                          message:
+                            type: string
+                            example: JSONRPCInvalidParams
+                        required:
+                          - type
+                          - args
+                          - message
+                    required:
+                      - code
+                      - message
+                      - data
                   id:
                     type: string
                     example: 1
