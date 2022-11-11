@@ -20,7 +20,7 @@ def fee_request_handler(package_size: str, src: float, dest: float) -> int:
     :param float dest: the address of the receiver
     :return: the fee to transport the package
     :rtype: int
-    :raises JSONRPCInvalidParams: if the package size does not exist.
+    :raises JSONRPCInvalidParams: if the package size does not exist
     """
     try:
         return calculate_fee(package_size, src, dest)
